@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="score" id="score"></div>
+      <div class="error" id="error">
+        <i class="fa-solid fa-xmark" id="close"></i>
+        <p>Please Answer The Question</p>
+      </div>
+      <div class="question">
+        <span
+          >Adding the style attributes in HTML elements, is known to be</span
+        >
+        <div class="choice">
+          <input type="radio" value="internal" id="internal" name="inline" />
+          <label for="css1">internal</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="inline" value="inline" name="inline" />
+          <label for="css2">inline</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="outline" value="outline" name="inline" />
+          <label for="outline">outline</label>
+        </div>
+      </div>
+      <div class="question">
+        <span>The link to a bookmark is added in an attribute named</span>
+        <div class="choice">
+          <input type="radio" value="href" id="href" name="href" />
+          <label for="href">href</label>
+        </div>
+        <div class="choice">
+          <input type="radio" value="link" id="link" name="href" />
+          <label for="link">link</label>
+        </div>
+        <div class="choice">
+          <input type="radio" value="src" id="src" name="href" />
+          <label for="src">src</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <span>In HTML elements, CSS can be added in different</span>
+        <div class="choice">
+          <input type="radio" value="2ways" id="2ways" name="3ways" />
+          <label for="2ways">2 ways</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="3ways" value="3ways" name="3ways" />
+          <label for="3ways">3 ways</label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="4ways" value="4ways" name="3ways" />
+          <label for="4ways">4 ways</label>
+        </div>
+      </div>
+
+
+      <div class="question">
+        <span>What is the prefered way for adding a background color in HTML ?</span>
+        <div class="choice">
+          <input type="radio" value="a" id="a" name="yellow" />
+          <label for="a">
+            <code>
+              &lt;body background="yellow"&gt;
+            </code>
+          </label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="b" value="b" name="yellow" />
+          <label for="b">
+            <code>
+              &lt;background&gt;yellow&lt;/background&gt;
+            </code>
+          </label>
+        </div>
+        <div class="choice">
+          <input type="radio" id="c" value="c" name="yellow" />
+          <label for="c">
+            <code>
+              &lt;body style="background-color:yellow"&gt;
+            </code>
+          </label>
+        </div>
+      </div>
+    </div>
+    <button id="next">Next</button>
+    <script src="index.js" defer></script>
+  </body>
+</html>
