@@ -2,7 +2,6 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  /* border: 1px solid; */
 }
 body {
   font-family: sans-serif;
@@ -170,6 +169,11 @@ button {
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
+}
+@media (max-width:767px) {
+  button {
+    margin: 20px auto 0;
+  }
 }
 span {
   display: block;
