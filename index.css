@@ -1,10 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo&family=Lato&family=Montserrat&family=Roboto:ital,wght@0,400;0,500;0,700;1,100;1,300&display=swap");
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: "Cairo", sans-serif;
+  font-weight: bold;
 }
 body {
-  font-family: sans-serif;
   background-color: #ddddde;
   overflow-x: hidden;
 }
@@ -26,6 +28,8 @@ body {
   position: absolute;
   top: 10px;
   left: 10px;
+  color: #373f53;
+  font-size: 20px;
 }
 .score {
   background-color: #5b518a;
