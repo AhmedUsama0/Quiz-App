@@ -11,24 +11,22 @@ body {
 
 .container {
   background-color: #c8c3c2;
-  padding: 40px;
   max-width: 1100px;
   margin: 25vh auto 0;
+  padding: 50px 10px;
   position: relative;
-  min-height: 50vh;
   overflow-x: hidden;
-}
-@media (max-width: 450px) {
-  .container {
-    padding: 5px;
-  }
-}
-@media (max-width: 2000px) {
-  .container {
-    min-height: 60vh;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
+.left-Questions{
+  position: absolute;
+  top: 10px;
+  left:10px;
+}
 .score {
   background-color: #5b518a;
   opacity: 0;
@@ -45,39 +43,6 @@ body {
 .score p {
   color: #fff;
   font-size: 40px;
-}
-.error {
-  visibility: hidden;
-  position: absolute;
-  background-color: #5b518a;
-  opacity: 0.8;
-  padding: 20px;
-  width: 80%;
-  height: 50%;
-  top: 50%;
-  left: 50%;
-  z-index: 30;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-}
-.error i {
-  position: absolute;
-  right: 10px;
-  top: 5px;
-  font-size: 30px;
-  color: #fff;
-  cursor: pointer;
-}
-.error p {
-  color: #fff;
-  font-size: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
 }
 .choice {
   background-color: #fff;
@@ -145,16 +110,8 @@ input:checked::before {
   z-index: 10;
 }
 .question {
-  position: absolute;
-  opacity: 0;
-  width: 80%;
+  display: none;
 }
-@media (max-width: 450px) {
-  .question {
-    width: 100%;
-  }
-}
-
 button {
   margin: 30px auto 0;
   display: block;

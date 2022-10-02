@@ -1,70 +1,45 @@
 "use strict";
-let score = 0;
-let answer;
-let numberOfAnswers = 0;
+let score = 0,
+  userAnswers;
 const questions = Array.from(document.querySelectorAll(".question"));
 const scoreMessage = document.querySelector("#score");
-const errorMessage = document.querySelector("#error");
+const leftQuestions  = document.querySelector("#left_Questions");
+leftQuestions.textContent = `${questions.length} Questions Left`;
+let answers = ["inline", "href", "3ways", "c"];
 let questionIndex = Math.round(Math.random() * (questions.length - 1));
-questions[questionIndex].style.opacity = "1";
-questions[questionIndex].style.zIndex = "20";
+questions[questionIndex].style.display = "block";
 
 document.querySelector("#next").addEventListener("click", next);
-document.querySelector("#close").onclick = () =>
-  (errorMessage.style.visibility = "hidden");
 
 function next() {
-  getAnswer();
-}
-function nextQuestion() {
-  questions.forEach((question) => {
-    question.style.opacity = "0";
-    question.style.zIndex = "-20";
-  });
-  if (questionIndex < questions.length - 1) questionIndex += 1;
-  else questionIndex = 0;
-
-  questions[questionIndex].style.opacity = "1";
-  questions[questionIndex].style.zIndex = "20";
-}
-function getAnswer() {
-  if (questionIndex === 0) {
-    checkAnswer({
-      userAnswer: document.querySelector('input[name="inline"]:checked'),
-      ans: "inline",
-    });
-  } else if (questionIndex === 1) {
-    checkAnswer({
-      userAnswer: document.querySelector('input[name="href"]:checked'),
-      ans: "href",
-    });
-  } else if (questionIndex === 2) {
-    checkAnswer({
-      userAnswer: document.querySelector('input[name="3ways"]:checked'),
-      ans: "3ways",
-    });
-  } else if (questionIndex === 3) {
-    checkAnswer({
-      userAnswer: document.querySelector('input[name="yellow"]:checked'),
-      ans: "c",
-    });
-  }
-  if (numberOfAnswers === questions.length) {
-    document.querySelector("button").removeEventListener("click", next);
+  checkAnswer();
+  if (userAnswers.length === questions.length) {
+    document.querySelector("#next").removeEventListener("click", next);
     scoreMessage.innerHTML = `<p>Your Score is ${score}/${questions.length}</p>`;
     scoreMessage.style.opacity = "0.8";
     scoreMessage.style.zIndex = "30";
   }
 }
+function nextQuestion() {
+  questions.forEach((question) => {
+    question.style.display = "none";
+  });
+  if (questionIndex < questions.length - 1) questionIndex++;
+  else questionIndex = 0;
 
-function checkAnswer({ userAnswer, ans }) {
-  try {
-    userAnswer = userAnswer.value;
-    numberOfAnswers += 1;
-    nextQuestion();
-  } catch (error) {
-    errorMessage.style.visibility = "visible";
-  }
-
-  if (userAnswer === ans) score++;
+  questions[questionIndex].style.display = "block";
+}
+function checkAnswer() {
+  userAnswers = document.querySelectorAll("input:checked");
+  answers.forEach((a) => {
+    userAnswers.forEach((user) => {
+      if (a === user.value) {
+        answers = answers.filter((aa) => aa !== a);
+        score++;
+      }
+    });
+  });
+  
+  leftQuestions.textContent = `${questions.length - userAnswers.length} Questinos Left`;
+  nextQuestion();
 }
